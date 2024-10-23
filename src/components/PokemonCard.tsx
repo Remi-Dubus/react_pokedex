@@ -1,14 +1,15 @@
-function PokemonCard({ pokemon }) {
+type pokemon = {
+	name: string;
+	imgSrc?: string;
+};
+
+const PokemonCard = ({ name, imgSrc }: pokemon) => {
 	return (
 		<figure>
-			{pokemon.imgSrc ? (
-				<img src={pokemon.imgSrc} alt={pokemon.name} />
-			) : (
-				<p>???</p>
-			)}
-			<figcaption>{pokemon.name}</figcaption>
+			{imgSrc ? <img src={imgSrc} alt={name} /> : <p>???</p>}
+			<figcaption>{name}</figcaption>
 		</figure>
 	);
-}
+};
 
 export default PokemonCard;
