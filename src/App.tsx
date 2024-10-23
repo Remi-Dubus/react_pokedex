@@ -1,21 +1,36 @@
 import "./App.css";
+import { useState } from "react";
+import pokemon from "./assets/data/pokemon.json";
 import PokemonCard from "./components/PokemonCard";
 
-const pokemonList = [
-	{
-		name: "bulbasaur",
-		imgSrc:
-			"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-	},
-	{
-		name: "mew",
-	},
-];
-
 function App() {
+	const [pokemonIndex, setPokemonIndex] = useState(0);
+	const handleClickBefore = () => {
+		if (pokemonIndex > 0) {
+			setPokemonIndex(pokemonIndex - 1);
+		} else {
+			setPokemonIndex(pokemonIndex + (pokemon.length - 1));
+		}
+	};
+	const handleClickAfter = () => {
+		if (pokemonIndex < pokemon.length - 1) {
+			setPokemonIndex(pokemonIndex + 1);
+		} else {
+			setPokemonIndex(pokemonIndex - pokemonIndex);
+		}
+	};
 	return (
 		<div>
-			<PokemonCard name={pokemonList[0].name} imgSrc={pokemonList[0].imgSrc} />
+			<PokemonCard
+				name={pokemon[pokemonIndex].name}
+				imgSrc={pokemon[pokemonIndex].imgSrc}
+			/>
+			<button type="button" onClick={handleClickBefore}>
+				Précedent
+			</button>
+			<button type="button" onClick={handleClickAfter}>
+				Suivant
+			</button>
 		</div>
 	);
 }

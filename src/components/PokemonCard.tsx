@@ -1,9 +1,6 @@
-type pokemon = {
-	name: string;
-	imgSrc?: string;
-};
+import type { PokemonProps } from "./PropsPokemon";
 
-const PokemonCard = ({ name, imgSrc }: pokemon) => {
+const PokemonCard = ({ name, imgSrc }: PokemonProps) => {
 	return (
 		<figure>
 			{imgSrc ? <img src={imgSrc} alt={name} /> : <p>???</p>}
