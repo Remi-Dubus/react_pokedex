@@ -1,4 +1,4 @@
-import type { PokemonProps } from "./PropsPokemon";
+import type { PokemonProps } from "../lib/PropsPokemon";
 
 const PokemonCard = ({ name, imgSrc }: PokemonProps) => {
 	return (
