@@ -1,36 +1,27 @@
 import "./App.css";
 import { useState } from "react";
-import pokemon from "./assets/data/pokemon.json";
+import pokemonListData from "./assets/data/pokemonListData.json";
+
 import PokemonCard from "./components/PokemonCard";
+import NavBar from "./components/NavBar";
+
+import type { PokemonProps } from "./lib/defintions";
 
 function App() {
 	const [pokemonIndex, setPokemonIndex] = useState(0);
-	const handleClickBefore = () => {
-		if (pokemonIndex > 0) {
-			setPokemonIndex(pokemonIndex - 1);
-		} else {
-			setPokemonIndex(pokemonIndex + (pokemon.length - 1));
-		}
-	};
-	const handleClickAfter = () => {
-		if (pokemonIndex < pokemon.length - 1) {
-			setPokemonIndex(pokemonIndex + 1);
-		} else {
-			setPokemonIndex(pokemonIndex - pokemonIndex);
-		}
-	};
+	const pokemonList: PokemonProps[] = pokemonListData;
 	return (
 		<div>
-			<PokemonCard
-				name={pokemon[pokemonIndex].name}
-				imgSrc={pokemon[pokemonIndex].imgSrc}
+			<NavBar
+				pokemonIndex={pokemonIndex}
+				setPokemonIndex={setPokemonIndex}
+				pokemonList={pokemonListData}
 			/>
-			<button type="button" onClick={handleClickBefore}>
-				Précedent
-			</button>
-			<button type="button" onClick={handleClickAfter}>
-				Suivant
-			</button>
+
+			<PokemonCard
+				name={pokemonList[pokemonIndex].name}
+				imgSrc={pokemonList[pokemonIndex].imgSrc}
+			/>
 		</div>
 	);
 }
