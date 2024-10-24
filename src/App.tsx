@@ -1,9 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 import pokemonListData from "./assets/data/pokemonListData.json";
-
-import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/NavBar";
+import PokemonCard from "./components/PokemonCard";
 
 import type { PokemonProps } from "./lib/defintions";
 

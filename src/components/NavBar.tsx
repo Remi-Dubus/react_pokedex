@@ -8,20 +8,18 @@ export default function NavBar({
 	pokemonList,
 }: NavBarProps) {
 	useState(pokemonIndex);
-	const handleClickBefore = () => setPokemonIndex(pokemonIndex - 1);
-	const handleClickAfter = () => setPokemonIndex(pokemonIndex + 1);
+
 	return (
 		<nav>
-			{pokemonIndex > 0 && (
-				<button type="button" onClick={handleClickBefore}>
-					Précedent
+			{pokemonList.map((pokemon, index) => (
+				<button
+					key={pokemon.name}
+					type="button"
+					onClick={() => setPokemonIndex(index)}
+				>
+					{pokemon.name}
 				</button>
-			)}
-			{pokemonIndex < pokemonList.length - 1 && (
-				<button type="button" onClick={handleClickAfter}>
-					Suivant
-				</button>
-			)}
+			))}
 		</nav>
 	);
 }
