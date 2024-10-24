@@ -9,8 +9,11 @@ import type { PokemonProps } from "./lib/defintions";
 function App() {
 	const [pokemonIndex, setPokemonIndex] = useState(0);
 	const pokemonList: PokemonProps[] = pokemonListData;
+	if (pokemonIndex === 3) {
+		alert("pika pikachu !!!");
+	}
 	return (
-		<div>
+		<>
 			<NavBar
 				pokemonIndex={pokemonIndex}
 				setPokemonIndex={setPokemonIndex}
@@ -21,7 +24,7 @@ function App() {
 				name={pokemonList[pokemonIndex].name}
 				imgSrc={pokemonList[pokemonIndex].imgSrc}
 			/>
-		</div>
+		</>
 	);
 }
 

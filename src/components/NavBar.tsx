@@ -1,14 +1,6 @@
-import { useState } from "react";
-
 import type { NavBarProps } from "../lib/defintions";
 
-export default function NavBar({
-	pokemonIndex,
-	setPokemonIndex,
-	pokemonList,
-}: NavBarProps) {
-	useState(pokemonIndex);
-
+export default function NavBar({ setPokemonIndex, pokemonList }: NavBarProps) {
 	return (
 		<nav>
 			{pokemonList.map((pokemon, index) => (
